@@ -4,6 +4,7 @@
         "artifact": "https://github.com/kuchosauronad0/iocage-plugins-synapse.git",
         "pkgs": [
                 "security/ca_root_nss",
+                "devel/git",
                 "net-im/py-matrix-synapse"
         ],
         "packagesite": "http://pkg.FreeBSD.org/FreeBSD:12:amd64/latest",

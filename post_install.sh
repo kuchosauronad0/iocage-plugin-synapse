@@ -22,6 +22,4 @@ sed -i '' -e 's+^uploads_path:.*$+uploads_path: "/var/db/matrix-synapse/uploads"
 sleep 100
 sed -i '' -e 's+^filename:.*+filename: /var/log/matrix-synapse/synapse.example.com.log+g' /usr/local/etc/matrix-synapse/synapse.example.com.log.config
 
-echo "Start synapse"
-service synapse start
-
+echo "Done"
