@@ -4,6 +4,7 @@
         "artifact": "https://github.com/kuchosauronad0/iocage-plugins-synapse.git",
         "pkgs": [
                 "security/ca_root_nss",
+                "databases/py-psycopg2",
                 "devel/git",
                 "net-im/py-matrix-synapse"
         ],
