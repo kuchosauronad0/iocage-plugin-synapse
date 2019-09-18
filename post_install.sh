@@ -15,6 +15,8 @@ echo "Configure /var/db/matrix-synapse for uploads and storage"
 mkdir -p /var/db/matrix-synapse/media_store
 mkdir -p /var/db/matrix-synapse/uploads
 chown -R synapse /var/db/matrix-synapse
+
+sed -i '' -e 's+^pid_file:.*$+pid_file: /var/run/matrix-synapse/synapse.example.com.pid+g' /usr/local/etc/matrix-synapse/homeserver.yaml
 sleep 5
 sed -i '' -e 's+^media_store_path:.*$+media_store_path: "/var/db/matrix-synapse/media_store"+g' /usr/local/etc/matrix-synapse/homeserver.yaml
 sleep 5
