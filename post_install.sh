@@ -4,7 +4,7 @@
 echo <<EOT >>/etc/rc.conf
 synapse_enable=YES
 EOT
-mv /usr/local/etc/matrix-synapse/homeserver.yml /usr/local/etc/matrix-synapse/homeserver1.yml
+#mv /usr/local/etc/matrix-synapse/homeserver.yml /usr/local/etc/matrix-synapse/homeserver1.yml
 
-service synapse start
+#service synapse start
 
