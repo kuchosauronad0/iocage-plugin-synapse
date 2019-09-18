@@ -4,7 +4,7 @@
 echo <<EOT >>/etc/rc.conf
 synapse_enable=YES
 EOT
-#mv /usr/local/etc/matrix-synapse/homeserver.yml /usr/local/etc/matrix-synapse/homeserver1.yml
+/usr/local/bin/python3.6 -B -m synapse.app.homeserver -c /usr/local/etc/matrix-synapse/homeserver.yml --generate-config --server-name=synapse.example.com --report-stats=no
 
-#service synapse start
+service synapse start
 
