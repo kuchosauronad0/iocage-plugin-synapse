@@ -11,6 +11,13 @@ ln -s /usr/local/etc/matrix-synapse/homeserver.yaml /usr/local/etc/matrix-synaps
 echo "Add synapse to rc.conf"
 echo 'synapse_enable="YES"' >> /etc/rc.conf
 
+echo "Configure /var/db/matrix-synapse for uploads and storage"   
+mkdir -p /var/db/matrix-synapse/media_store
+mkdir -p /var/db/matrix-synapse/uploads
+chown -R synapse /var/db/matrix-synapse
+sed -i '' -e 's+^media_store_path:.*$+media_store_path: "/var/db/matrix-synapse/media_store"+g' /usr/local/etc/matrix-synape/homeserver.yaml
+sed -i '' -e 's+^uploads_path:.*$+uploads_path: "/var/db/matrix-synapse/uploads"+g' /usr/local/etc/matrix-synapse/homeserver.yaml
+
 echo "Start synapse"
 service synapse start
 
