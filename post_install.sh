@@ -9,9 +9,7 @@ rm /usr/local/etc/matrix-synapse/homeserver.yml
 ln -s /usr/local/etc/matrix-synapse/homeserver.yaml /usr/local/etc/matrix-synapse/homeserver.yml
 
 echo "Add synapse to rc.conf"
-echo <<EOT >>/etc/rc.conf
-synapse_enable="YES"
-EOT
+echo 'synapse_enable="YES"' >> /etc/rc.conf
 
 echo "Start synapse"
 service synapse start
