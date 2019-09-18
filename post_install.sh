@@ -15,8 +15,10 @@ echo "Configure /var/db/matrix-synapse for uploads and storage"
 mkdir -p /var/db/matrix-synapse/media_store
 mkdir -p /var/db/matrix-synapse/uploads
 chown -R synapse /var/db/matrix-synapse
-sed -i '' -e 's+^media_store_path:.*$+media_store_path: "/var/db/matrix-synapse/media_store"+g' /usr/local/etc/matrix-synape/homeserver.yaml
+media_store_path
+sed -i '' -e 's+^media_store_path:.*$+media_store_path: "/var/db/matrix-synapse/media_store"+g' /usr/local/etc/matrix-synapse/homeserver.yaml
 sed -i '' -e 's+^uploads_path:.*$+uploads_path: "/var/db/matrix-synapse/uploads"+g' /usr/local/etc/matrix-synapse/homeserver.yaml
+sed -i '' -e 's+^filename:.*+filename: /var/log/matrix-synapse/synapse.example.com.log+g' /usr/local/etc/matrix-synapse/synapse.example.com.log.config
 
 echo "Start synapse"
 service synapse start
