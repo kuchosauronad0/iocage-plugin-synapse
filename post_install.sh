@@ -13,7 +13,7 @@ MATRIX_SYNAPSE_HOME="/usr/local/$MATRIX_SYNAPSE_NAME"
 mkdir -p /usr/local/etc/ssl/keys
 mkdir -p /usr/local/etc/ssl/certs
 chmod 0600 /usr/local/etc/ssl/keys
-openssl genrsa -out /usr/local/etc/ssl/keys/${matrix-synapse_server}.key 4096
+openssl genrsa -out /usr/local/etc/ssl/keys/$MATRIX_SYNAPSE_SERVER.key 4096
 
 # Create the default directories
 mkdir -p $MATRIX_SYNAPSE_DATA
@@ -23,14 +23,14 @@ chown $MATRIX_SYNAPSE_USER:wheel $MATRIX_SYNAPSE_DATA
 
 # Generate /homeserver.yml
 rm $MATRIX_SYNAPSE_HOME/homeserver.yml
-/usr/local/bin/python3.6 -B -m synapse.app./homeserver -c $MATRIX_SYNAPSE_HOME/homeserver.yaml --generate-config --server-name=$MATRIX_SYNAPSE_SERVER --report-stats=no
+/usr/local/bin/python3.6 -B -m synapse.app.homeserver -c $MATRIX_SYNAPSE_HOME/homeserver.yaml --generate-config --server-name=$MATRIX_SYNAPSE_SERVER --report-stats=no
 # Note: an empty /homeserver.yml is provided by the overlay; feel free to use this instead by commenting out line 24-25 
 ln -s $MATRIX_SYNAPSE_HOME/homeserver.yaml $MATRIX_SYNAPSE_HOME/homeserver.yml
 
 sed -i '' -e 's+^pid_file:.*$+pid_file: /var/run/matrix-synapse/synapse.example.com.pid+g' $MATRIX_SYNAPSE_HOME/homeserver.yaml
 sed -i '' -e 's+^media_store_path:.*$+media_store_path: "/var/db/matrix-synapse/media_store"+g' $MATRIX_SYNAPSE_HOME/homeserver.yaml
 sed -i '' -e 's+^uploads_path:.*$+uploads_path: "/var/db/matrix-synapse/uploads"+g' $MATRIX_SYNAPSE_HOME/homeserver.yaml
-sed -i '' -e 's+^.*filename:.*+        filename: /var/log/matrix-synapse/synapse.example.com.log+g' $MATRIX_SYNAPSE_HOME$MATRIX_SYNAPSE_SERVER.log.config
+sed -i '' -e 's+^.*filename:.*+        filename: /var/log/matrix-synapse/synapse.example.com.log+g' $MATRIX_SYNAPSE_HOME/$MATRIX_SYNAPSE_SERVER.log.config
 
 sysrc -f /etc/rc.conf synapse_enable="YES"
 
