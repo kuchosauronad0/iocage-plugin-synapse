@@ -2,12 +2,12 @@
 # Post install script for iocage-plugin-synapse
 # Copyright 2019 Andre Poley <andre.poley@mailbox.org>
 MATRIX_SYNAPSE_NAME="matrix-synapse"
-MATRIX_SYNAPSE_USER="root"
-MATRIX_SYNAPSE_DATA="/var/db/matrix-synapse"
-MATRIX_SYNAPSE_LOG="/var/log/matrix-synapse/synapse.example.com.log"
-MATRIX_SYNAPSE_LISTEN="0.0.0.0,::"
 MATRIX_SYNAPSE_SERVER="synapse.example.com"
-MATRIX_SYNAPSE_HOME="/usr/local/$MATRIX_SYNAPSE_NAME"
+MATRIX_SYNAPSE_DATA="/var/db/$MATRIX_SYNAPSE_NAME"
+MATRIX_SYNAPSE_LOG="/var/log/$MATRIX_SYNAPSE_NAME/$MATRIX_SYNAPSE_SERVER.log"
+MATRIX_SYNAPSE_HOME="/usr/local/etc/$MATRIX_SYNAPSE_NAME"
+MATRIX_SYNAPSE_USER="root"
+MATRIX_SYNAPSE_LISTEN="0.0.0.0,::"
 
 # Generate a SSL key
 mkdir -p /usr/local/etc/ssl/keys
