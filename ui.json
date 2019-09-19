@@ -1,3 +1,5 @@
 {
-    "adminportal": "%%IP%%:8448"
+
+    "adminportal": "%%IP%%:8448",
+    "doc_url" : "https://github.com/kuchosauronad0/iocage-plugin-synapse.git"
 }
