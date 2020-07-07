@@ -1,0 +1,21 @@
+{
+        "name": "ioc-synapse",
+        "release": "12.0-RELEASE",
+        "artifact": "https://github.com/kuchosauronad0/iocage-plugins-synapse.git",
+        "pkgs": [
+                "security/ca_root_nss",
+                "databases/py-psycopg2",
+                "devel/git",
+                "net-im/py-matrix-synapse"
+        ],
+        "packagesite": "http://pkg.FreeBSD.org/FreeBSD:12:amd64/latest",
+        "fingerprints": {
+                "iocage-plugins": [
+                        {
+                                "function": "sha256",
+                                "fingerprint": "b0170035af3acc5f3f3ae1859dc717101b4e6c1d0a794ad554928ca0cbb2f438"
+                }
+                ]
+        },
+        "official": false
+}
